@@ -8,7 +8,7 @@
             print("Inside the context")
 
         global code_execution_time
-        print("global variable `code_execution_time`:", code_execution_time)
+
 
     See main section for `@speed()` examples
 """
