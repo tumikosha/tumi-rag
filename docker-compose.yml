@@ -1,0 +1,33 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.8.0
+    volumes:
+      - qdrant_storage:/qdrant/storage
+      - qdrant_snapshots:/qdrant/snapshots
+    expose:
+      - 6333
+
+  api:
+    build: ./api
+    expose:
+        - 9777
+    depends_on:
+      - qdrant
+    restart: on-failure
+    environment:
+      QDRANT_URL: QDRANT_URL
+      qdrant_uri: "qdrant:6333"
+
+  demo:
+    build: ./web
+    ports:
+      - "9888:9888"
+    restart: on-failure
+    environment:
+      api_uri: "api:9777"
+      port: 9888
+
+
+volumes:
+  qdrant_storage:
+  qdrant_snapshots:
