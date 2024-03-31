@@ -3,11 +3,11 @@
     Module to calculate the execution time of my_code. Result stores in global variable
     Also function decorator `@speed()` allows you to add cache and execution time parameters to any function
     USAGE:
-        with measure_execution_time("code_execution_time"):
-            time.sleep(2)
-            print("Inside the context")
+       # with measure_execution_time("code_execution_time"):
+       #     time.sleep(2)
+       #     print("Inside the context")
 
-        global code_execution_time
+       # global code_execution_time
 
 
     See main section for `@speed()` examples
@@ -141,30 +141,30 @@ class time_this_scope():
 
 
 print(f"[x] Module {__name__} loaded")
-
-if __name__ == '__main__':
-    timer = time_this_scope()
-    with timer:
-        time.sleep(0.100)
-
-    print(timer.diff)
-
-    with speedometer("result"):
-        time.sleep(2)
-        print("Inside the context")
-    # or alternative
-    with measure_execution_time("code_execution_time"):
-        time.sleep(2)
-        print("Inside the context")
-
-    global code_execution_time
-    print("global variable `code_execution_time`:", code_execution_time)
-
-    example_function("AAA", cache="memory", sleep=1, add_exec_time=True, print=True)
-    example_function("AAA", cache="memory", sleep=1, add_exec_time=True, print=False)
-    example_function("AAA", cache="memory", sleep=1, add_exec_time=True)
-    example_function("AAA", cache="memory", sleep=1, add_exec_time=False)
-    example_function("AAA", cache="memory", sleep=1, )
-    example_function("AAA", cache="memory", sleep=False, )
-    a = example_function("AAA", cache="memory", sleep=5, )
-    print(a)
+#
+# if __name__ == '__main__':
+#     timer = time_this_scope()
+#     with timer:
+#         time.sleep(0.100)
+#
+#     print(timer.diff)
+#
+#     with speedometer("result"):
+#         time.sleep(2)
+#         print("Inside the context")
+#     # or alternative
+#     with measure_execution_time("code_execution_time"):
+#         time.sleep(2)
+#         print("Inside the context")
+#
+#     global code_execution_time
+#     print("global variable `code_execution_time`:", code_execution_time)
+#
+#     example_function("AAA", cache="memory", sleep=1, add_exec_time=True, print=True)
+#     example_function("AAA", cache="memory", sleep=1, add_exec_time=True, print=False)
+#     example_function("AAA", cache="memory", sleep=1, add_exec_time=True)
+#     example_function("AAA", cache="memory", sleep=1, add_exec_time=False)
+#     example_function("AAA", cache="memory", sleep=1, )
+#     example_function("AAA", cache="memory", sleep=False, )
+#     a = example_function("AAA", cache="memory", sleep=5, )
+#     print(a)
